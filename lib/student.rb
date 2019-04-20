@@ -40,7 +40,7 @@ class Student
     sql = <<-SQL
         SELECT * FROM students WHERE name = ?
       SQL
-    @id = DB[:conn].execute(sql, self.name)
+    @id = DB[:conn].execute(sql, self.name)[0][0]
     puts "#{@id}"
   end
   
