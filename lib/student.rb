@@ -37,11 +37,8 @@ class Student
       SQL
     DB[:conn].execute(sql, self.name, self.grade)
     
-    sql = <<-SQL
-        SELECT * FROM students WHERE name = ?
-      SQL
+
     @id = DB[:conn].execute(sql, self.name)[0][0]
-    puts "#{@id}"
   end
   
   def self.create(name:, grade:)
